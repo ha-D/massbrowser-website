@@ -16,15 +16,24 @@
       <div class="row">
         <div class="twelve columns">
           <p> <strong>MassBrowser</strong> is a state-of-the-art volunteer-based censorship circumvention tool developed at the <strong><a href="https://people.cs.umass.edu/~amir/Research.html">SPIN Lab</a></strong> at <strong><a href="http://www.umass.edu/">UMass, Amherst</a></strong>. <strong>MassBrowser</strong> enables users in censored countries to freely browse the Web with the help of <strong>volunteers</strong> from countries with open access to the Internet. 
-          <strong>MassBrowser</strong> functions with a lower maintainance cost compared to traditional circumvention tools and provides robustness to being blocked by censoring countries.
+          <strong>MassBrowser</strong> functions with a lower maintainance cost compared to traditional circumvention tools and provides robustness to being blocked by censoring countries. </p>
         </div>
       </div>
 
       <div class="row">
         <div class="twelve columns">
           <h4> How it works </h4>
-          <!-- Censorship circumvention tools traditionally work by sending the user's traffic through proxy servers outside of the censoring region.
-          <h6> Volunteer Relays </h6>
+          <p>
+            Censorship circumvention tools traditionally work by relaying the user's traffic through proxy servers outside of the censoring region. The proxy servers have open access to the Internet and are able to retrieve the requested pages on behalf of the user. Unfortunately, this simple scheme has two downsides.
+            <ul>
+              <li> <strong>Proxy servers can be blocked by the censors.</strong> Since proxy servers have defined public IP addresses, censors can block access to the proxies by applying IP filtering at their border gateways. Even if the proxy IP addresses are not publicly announced, censors can gain access to the IP addresses by imitating censored users.</li>
+              <li> <strong> Maintaining proxy servers.</strong> Circumvention systems must have enough infastructure to handle the bandwidth of all it's users. The number of users using circumvention systems is relatively high, considering entire nations such as China and Iran have censored access to the Internet. This imposes extremely high costs for maintaining proxy servers for the circuvmention system providers.</li>
+            </ul>
+          </p>
+          <p>
+            To provide a robust and cost-effective solution, we have designed MassBrowser. MassBrowser uses a number of different techniques to provide censorship circumvention which is hard to block by the censors, not too expensive to maintain and delivers performance comparable to that of traditional circumvention systems.
+          </p>
+          <!-- <h6> Volunteer Relays </h6>
           Instead of relying solely on proxy servers, <strong>MassBrowser</strong> utilizes volunteer relays -->
         </div>
       </div>
