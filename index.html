@@ -33,19 +33,41 @@
           <p>
             To provide a robust and cost-effective solution, we have designed MassBrowser. MassBrowser uses a number of different techniques to provide censorship circumvention which is hard to block by the censors, not too expensive to maintain and delivers performance comparable to that of traditional circumvention systems.
           </p>
-          <h5> Volunteer Relays </h5>
+          <h5 id="volunteer-relays"> Volunteer Relays </h5>
           <p>
-            Instead of relying solely on publicly hosted proxy servers, MassBrowser utilizes <em>volunteer relays</em>. Volunteers are users residing outside the censored regions who are willing to help censored users gain open access to the Internet by allowing them to proxy their traffic through their devices. In concept, volunteer relays are very similar to traditional proxies, however they have two beneficial properties
+            Instead of relying solely on publicly hosted proxy servers, MassBrowser utilizes <em>volunteers</em> which we call <strong>MassRelays</strong>. Volunteers are users residing outside the censored regions who are willing to help censored users gain open access to the Internet by allowing them to proxy their traffic through their devices. In concept, volunteer relays are very similar to traditional proxies, however they have two beneficial properties
             <ol>
               <li>No single entity is responsible for providing all the necessary bandwidth needed to support censored users</li>
               <li>Volunteers may have changing and non-public IP addresses, making it more difficult for censors to block them using traditional methods</li>
             </ol>
-          </p>
 
-          <!-- <h5>Backup Proxies and Domain Fronting</h5>
+            Volunteer-based systems are not a new concept. The largest anonymity system in use today, i.e., <a href="https://www.torproject.org/">Tor</a>, is run by volunteers. To answer to possible concerns volunteers may have, the MassRelay client provides the volunteer with a range of options for limiting the bandwidth usage and even choosing websites they wish to allow.
+          </p>
+          <p>
+            Blocking volunteers is more difficult for censors than traditional public proxies, however it is far from perfect and censors may still block volunteer relays. A typical approach against censors used in many circumvention systems is to avoid anouncing all available proxies (or volunteer relays) to the users. Simirlaly, in MassBrowser each client will only have access to a small number of all available relays. This way, even if the censors mimic benign users, they will only every be able to block a small portion of all available relays.
+          </p>
           <p>
 
-          </p> -->
+          </p>
+
+          <h5>Backup Proxies and Domain Fronting</h5>
+          <p>
+            In the <a href="#volunteer-relays">Volunteer Relays</a> section we mentioned that each censored user will only have access to a small subset of all available volunteer relays. However, if the censors manage to block all the relays a particular user has access to, the user will be stuck with blocked relays and will be unable to use the system. The user cannot be assigned another non-blocked relay, since the censors would take advantage and start blocking more relays.
+          </p>
+          <p>
+            To mitigate this problem, the MassBrowser network has a number of public backup proxies which will be assigned to users if all the users available relays have been blocked. Of course, if we simply use a traditional proxy there is nothing keeping the censors from blocking those as well. Instead, we use a recently proposed technique called <strong>Domain Fronting</strong> to keep the proxies from being blocked.
+          </p>
+          <p>
+            <strong>Domain Fronting</strong> is a technique in which the proxy server is hosted behind a Content Delivery Network (CDN) and is accessed through the CDNs IP addresses in a way which avoids any unencrypted mentioning of the desired service (i.e. the proxy server). In order to block this proxy server, the censors would have to block access to any website hosted on that CDN which is a highly undesirable. You can learn more about Domain Fronting through the original paper linked below.
+            </br>
+            <a href="http://www.icir.org/vern/papers/meek-PETS-2015.pdf">Blocking-resistant communication
+              through domain fronting, Proceedings on Privacy Enhancing Technologies 2015</a>
+          </p>
+          <p>
+            You might be thinking this seems great, why not make a circumvention system based solely on Domain Fronting? While Domain Fronting does make a very robust system against censors blocking proxies, it still requires a high maintaince cost. In fact, there already is a widely used Domain Fronting based system, named <a href="https://trac.torproject.org/projects/tor/wiki/doc/meek">meek</a>, deployed as a Pluggable Transport for Tor. In it's aproximately three years of operation, the total cost for maintaining meek's servers have reached over $50,000.
+          </p>
+
+          
         </div>
       </div>
 
